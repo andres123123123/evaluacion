@@ -1,0 +1,23 @@
+<mat-drawer-container fullscreen>
+    <mat-toolbar>
+        <button mat-button>hacker news</button>
+    </mat-toolbar>
+
+    <mat-paginator [length]="storie.length" [pageSize]="page_size" (page)="handlePage($event)" aria-label="Select page">
+    </mat-paginator>
+
+        <mat-card *ngFor="let stori of storie | paginate:page_size:page_number">
+            <mat-card-header>
+                <mat-card-title>
+                    <h3 *ngIf="stori.type != 'story'">{{stori.title}}</h3> 
+                    <a *ngIf="stori.type == 'story'" href="{{stori.url}}"> {{stori.title}}</a></mat-card-title>
+            </mat-card-header>
+           
+            <mat-card-content></mat-card-content>
+        </mat-card>
+    
+
+
+  
+
+</mat-drawer-container>
